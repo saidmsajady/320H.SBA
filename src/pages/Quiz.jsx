@@ -11,15 +11,14 @@ const Quiz = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
   // The state that contains the current question number index ^
   const [choices, setChoices] = useState([]);
-  // The state that scores the mltiple choice options ^
+  // The state that stores the multiple choice options ^
   const [gameOver, setGameOver] = useState(false);
   // The last state that indicates if the game is over or not ^
   /* 
     const [selectedChoice, setSelectedChoice] = useState(null);
     const [correctAnswer, setCorrectAnswer] = useState(null);
   */
- // ^ Was not able to implement showing the asnwer incorrect/correct for each question
-
+  // ^ Was not able to implement showing the answer incorrect/correct for each question
 
   // Fetches the countries from the country API
   useEffect(() => {
@@ -37,7 +36,7 @@ const Quiz = () => {
     }
   }, [countries, questionIndex]);
 
-  // The function for creating new question
+  // The function for creating new questions
   const generateQuestion = () => {
     const country = countries[Math.floor(Math.random() * countries.length)];
     setCurrentCountry(country);
@@ -51,7 +50,7 @@ const Quiz = () => {
     setChoices(shuffleArray(choices));
   };
 
-  // The Function to shuffel the array
+  // The function to shuffle the array
   const shuffleArray = (array) => {
     return array.sort(() => Math.random() - 0.5);
   };
@@ -69,7 +68,7 @@ const Quiz = () => {
   };
 
   return (
-    <div>
+    <div className="quiz-container">
       {gameOver ? (
         <div>
           <h1>Game Over!</h1>
