@@ -3,12 +3,19 @@ import axios from 'axios';
 
 const Quiz = () => {
   const [countries, setCountries] = useState([]);
+  // The state to store the fetched countries ^
   const [currentCountry, setCurrentCountry] = useState(null);
+  // The state for the current country for the quiz question ^
   const [score, setScore] = useState(0);
+  // The state that tracks the users current quiz score ^
   const [questionIndex, setQuestionIndex] = useState(0);
+  // The state that contains the current question number index ^
   const [choices, setChoices] = useState([]);
+  // The state that scores the mltiple choice options ^
   const [gameOver, setGameOver] = useState(false);
+  // The last state that indicates if the game is over or not ^
 
+  // Fetches the countries from the country API
   useEffect(() => {
     async function fetchCountries() {
       const response = await axios.get('https://restcountries.com/v3.1/all?fields=name,capital,flags');
@@ -17,12 +24,14 @@ const Quiz = () => {
     fetchCountries();
   }, []);
 
+  // Generates new questions for each question index
   useEffect(() => {
     if (countries.length > 0) {
       generateQuestion();
     }
   }, [countries, questionIndex]);
 
+  // The function for creating new question
   const generateQuestion = () => {
     const country = countries[Math.floor(Math.random() * countries.length)];
     setCurrentCountry(country);
@@ -36,10 +45,12 @@ const Quiz = () => {
     setChoices(shuffleArray(choices));
   };
 
+  // The Function to shuffel the array
   const shuffleArray = (array) => {
     return array.sort(() => Math.random() - 0.5);
   };
 
+  // The function for points if the user gets the question correct or incorrect
   const handleAnswer = (choice) => {
     if (choice === currentCountry.capital[0]) {
       setScore(score + 1);
