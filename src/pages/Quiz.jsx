@@ -14,6 +14,12 @@ const Quiz = () => {
   // The state that scores the mltiple choice options ^
   const [gameOver, setGameOver] = useState(false);
   // The last state that indicates if the game is over or not ^
+  /* 
+    const [selectedChoice, setSelectedChoice] = useState(null);
+    const [correctAnswer, setCorrectAnswer] = useState(null);
+  */
+ // ^ Was not able to implement showing the asnwer incorrect/correct for each question
+
 
   // Fetches the countries from the country API
   useEffect(() => {
