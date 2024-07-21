@@ -1,16 +1,25 @@
 import { useState, useEffect } from 'react'
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Info from './pages/Info';
+import Navbar from './components/NavBar';
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  // const [count, setCount] = useState(0)
 
-  useEffect(() => {
+  // useEffect(() => {
 
-  }, []);
+  // }, []);
 
   return (
     <>
-      <h1>Hello</h1>
+      <Navbar>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/info/:country' element={<Info />} />
+        </Routes>
+      </Navbar>
     </>
   )
 }
