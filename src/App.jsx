@@ -1,28 +1,19 @@
-import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
-import Info from './pages/Info';
+import Quiz from './pages/Quiz';
 import Navbar from './components/NavBar';
-import './styles.css'
-// import './App.css'
+import './styles.css';
 
 const App = () => {
-  // const [count, setCount] = useState(0)
-
-  // useEffect(() => {
-
-  // }, []);
-
   return (
-    <>
-      <Navbar>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/info/:country' element={<Info />} />
-        </Routes>
-      </Navbar>
-    </>
-  )
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/quiz' element={<Quiz />} />
+      </Routes>
+    </div>
+  );
 }
 
-export default App
+export default App;
