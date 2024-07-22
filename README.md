@@ -19,7 +19,7 @@ Application Structure:
 
 React Components:
 - NavBar Component: Navigation links to switch between the Home and Quiz pages.
-Home Component: Displays the purpose of the application and instructions.
+- Home Component: Displays the purpose of the application and instructions.
 Quiz Component: Manages the quiz game, including fetching countries, generating questions, and handling user answers.
 
 REST Countries API Integration:
